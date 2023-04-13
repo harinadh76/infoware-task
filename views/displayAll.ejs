@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: #fff;
+            width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 20px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .card-header h2 {
+            margin: 0;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-body p {
+            margin: 0;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            width: 35%;
+            margin: 5px;
+        }
+
+        .button:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>All the employees</h1>
+    </center>
+
+    <!-- <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Salary</th>
+            <th>Address</th>
+            <th>Actions</th>
+        </tr>
+        <% for(var i=0; i<employees.length; i++){ %>
+            <tr>
+                <td><%= employees[i].id %></td>
+                <td><%= employees[i].name %></td>
+                <td><%= employees[i].email %></td>
+                <td><%= employees[i].phone %></td>
+                <td><%= employees[i].salary %></td>
+                <td><%= employees[i].address %></td>
+                <td>
+                    
+                    <form action="/getEmployeeById/<%= employees[i].id %>" method="get">
+                        <input type="submit" value="view">
+                    </form>
+
+                    <form action="/checkForUpdates/<%= employees[i].id %>" method="post">
+                        <input type="submit" value="Update">
+                    </form>
+
+                    <form action="/deleteEmployeeById/<%= employees[i].id %>" method="post">
+                        <input type="submit" value="Delete">
+                    </form>
+                   
+                </td>
+            </tr>
+
+        <% } %>
+
+        
+    </table> -->
+
+
+
+    <% for(var i=0; i<employees.length; i++){ %>
+
+        <div class="card-container">
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>
+                        <%= employees[i].name %>
+                    </h2>
+                </div>
+                <div class="card-body">
+
+                    <p>ID: <%= employees[i].id %>
+                    </p>
+                    <p>Email: <%= employees[i].email %>
+                    </p>
+                    <p>Phone: <%= employees[i].phone %>
+                    </p>
+                    <p>Salary: <%= employees[i].salary %>
+                    </p>
+                    <p>Address: <%= employees[i].address %>
+                    </p>
+
+
+                    <form action="/getEmployeeById/<%= employees[i].id %>" method="get">
+                        <input type="submit" value="view" class="button">
+                    </form>
+
+                    <form action="/checkForUpdates/<%= employees[i].id %>" method="post">
+                        <input type="submit" value="Update" class="button">
+                    </form>
+
+                    <form action="/deleteEmployeeById/<%= employees[i].id %>" method="post">
+                        <input type="submit" value="Delete" class="button">
+                    </form>
+
+                </div>
+            </div>
+
+            <% } %>
+</body>
+
+</html>
